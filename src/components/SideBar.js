@@ -1,24 +1,30 @@
-import React, { useContext } from 'react'
+import React, { useContext, useRef } from 'react'
 import styled from '@emotion/styled'
 
 import { store } from '../store/store'
+
+import useClickOutside from "../hooks/useClickOutside"
 
 const SideBar = () => {
   const globalState = useContext(store)
   const { state, dispatch } = globalState
 
+  const reference = useRef(null)
+  const referenceHandler = () => dispatch({ type: "TOGGLE_SIDEBAR" })
+
+  useClickOutside(reference, referenceHandler)
+
   return (
-    <Container>
+    <Container ref={reference}>
       {state.wishlist.map((movie) => (
-          <Item key={movie.id}>
-            <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
-            <div>
-              <p onClick={() => dispatch({ type: "REMOVE_FROM_WISHLIST", payload: movie. id })}>{movie.title}</p>
-              <span>{movie.release_date}</span>
-            </div>
-          </Item>
-        )
-      )}
+        <Item key={movie.id}>
+          <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
+          <div>
+            <p onClick={() => dispatch({ type: 'REMOVE_FROM_WISHLIST', payload: movie.id })}>{movie.title}</p>
+            <span>{movie.release_date}</span>
+          </div>
+        </Item>
+      ))}
     </Container>
   )
 }
@@ -29,7 +35,7 @@ const Container = styled('div')`
   background-color: black;
   color: white;
   position: fixed;
-  top: 4rem;
+  top: 0;
   right: 0;
   bottom: 0;
   padding: 1rem;
@@ -48,6 +54,6 @@ const Item = styled('div')`
     cursor: pointer;
     font-size: 1.2rem;
     font-weight: 600;
-    padding-bottom: .5rem;
+    padding-bottom: 0.5rem;
   }
 `

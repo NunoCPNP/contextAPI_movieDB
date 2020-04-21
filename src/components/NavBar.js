@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-import Wishlist from '../components/Wishlist'
+import Wishlist from './Wishlist'
 
 const NavBar = () => {
   return (

@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from 'react'
 
-import NavBar from './sections/NavBar'
+import NavBar from './components/NavBar'
 import Loader from './components/Loader'
 
 import { StateProvider } from './store/store'
