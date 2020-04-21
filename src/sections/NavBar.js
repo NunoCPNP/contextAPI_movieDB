@@ -1,7 +1,7 @@
-import React from "react"
-import styled from "@emotion/styled"
+import React from 'react'
+import styled from '@emotion/styled'
 
-import Wishlist from "../components/Wishlist"
+import Wishlist from '../components/Wishlist'
 
 const NavBar = () => {
   return (
@@ -17,6 +17,10 @@ const NavBar = () => {
 export default NavBar
 
 const Container = styled('nav')`
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
   display: flex;
   justify-content: space-between;
   padding: 1.5rem 3rem;

@@ -4,6 +4,7 @@ import axios from "axios"
 
 import { store } from "../store/store"
 
+import SideBar from "../components/SideBar"
 import Movie from "../components/Movie"
 
 const MovieList = () => {
@@ -20,11 +21,14 @@ const MovieList = () => {
   }, [])
   
   return (
-    <GridContainer>
-      {state.movies.map((movie) => (
-        <Movie key={movie.id} id={movie.id} title={movie.title} poster={movie.poster_path} />
-      ))}
-    </GridContainer>
+    <>
+      { state.isSideBarOpen && <SideBar />}
+      <GridContainer>
+        {state.movies.map((movie) => (
+          <Movie key={movie.id} id={movie.id} title={movie.title} poster={movie.poster_path} />
+        ))}
+      </GridContainer>
+    </>
   )
 }
 
@@ -32,7 +36,7 @@ export default MovieList
 
 const GridContainer = styled('div')`
   margin: auto;
-  padding: 2rem;
+  padding: 8rem 2rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   max-width: 120rem;

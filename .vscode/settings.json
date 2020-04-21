@@ -53,13 +53,6 @@
   },
   "editor.formatOnSave": true,
   "explorer.compactFolders": false,
-  "cSpell.words": [
-    "Nuno",
-    "Pereira",
-    "devtools",
-    "middlewares",
-    "persistor",
-    "theming"
-  ],
+  "cSpell.words": ["Nuno", "Pereira", "devtools", "middlewares", "persistor", "theming"],
   "editor.tabSize": 2
 }
