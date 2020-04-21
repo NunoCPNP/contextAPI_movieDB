@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "@emotion/styled"
 
-import { FaHeart } from 'react-icons/fa';
+import Wishlist from "../components/Wishlist"
 
 const NavBar = () => {
   return (
@@ -9,10 +9,7 @@ const NavBar = () => {
       <div>
         <span>The Movie DB</span>
       </div>
-      <Wishlist>
-        <span>Wishlist</span>
-        <FaHeart color="white" />
-      </Wishlist>
+      <Wishlist />
     </Container>
   )
 }
@@ -31,14 +28,5 @@ const Container = styled('nav')`
     font-size: 1rem;
     font-weight: 600;
     text-transform: uppercase;
-  }
-`
-
-const Wishlist = styled('div')`
-  display: flex;
-  align-items: center;
-
-  span {
-    padding-right: 1rem;
   }
 `

@@ -22,7 +22,7 @@ const MovieList = () => {
   return (
     <GridContainer>
       {state.movies.map((movie) => (
-        <Movie key={movie.id} title={movie.title} poster={movie.poster_path} />
+        <Movie key={movie.id} id={movie.id} title={movie.title} poster={movie.poster_path} />
       ))}
     </GridContainer>
   )

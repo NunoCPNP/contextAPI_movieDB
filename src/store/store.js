@@ -14,9 +14,17 @@ const StateProvider = ({ children }) => {
     switch(action.type) {
       case 'GET_MOVIES':
         
-        return{
+        return {
           ...state,  
           movies: [...action.payload]
+        }
+
+      case 'ADD_TO_WISHLIST':
+        const item = state.movies.filter((movie) => movie.id === action.payload)[0]
+
+        return {
+          ...state,
+          wishlist: [...state.wishlist, item]
         }
 
       default:
