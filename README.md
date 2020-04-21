@@ -1,24 +1,61 @@
-Demo project connected to [TheMovieDB](https://www.themoviedb.org/) api using React Context API and hooks to manage state.
+# ContextAPI Demo
 
-Article describing the process coming soon on [DEV](http://dev.to/) ...
+Demo Application of React Context API and React Hooks to manage local and global state
 
-### Available Scripts
+This project is connected [TheMovieDB](https://www.themoviedb.org/) API
 
-In the project directory, you can run:
+Tutorial describing the process coming soon on [DEV](http://dev.to/) ...
 
-#### `npm start`
+## Live Demo
 
-#### `npm run build`
+[You can check a live version of the project here !](https://contextapidemo.netlify.app/)
 
-You need to create a .env file and provide the following variables:
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+### Prerequisites
+
+Create a .env file and provide the following variables:
 
 ```
 REACT_APP_APIKEY
 REACT_APP_APIURL
 ```
 
-Check [TheMovieDB](https://www.themoviedb.org/) to get your own API Key
+Check [TheMovieDB](https://www.themoviedb.org/) to get your API Key and Url
 
-### Live Demo
+### Installing
 
-[Context API Demo](https://contextapidemo.netlify.app/)
+In the project directory, run:
+
+#### `npm install`
+
+#### `npm start`
+
+## Deployment
+
+In the project directory, run:
+
+#### `npm run build`
+
+and copy the build directory to your favorite static website hosting platform
+
+## Built With
+
+- [React](https://reactjs.org/)
+- [React Router](https://github.com/ReactTraining/react-router#readme)
+- [EMotion](https://emotion.sh/docs/introduction)
+- [Framer Motion](https://www.framer.com/motion/)
+
+<!-- ## Contributing
+
+Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us. -->
+
+## Authors
+
+- [Nuno Pereira](https://github.com/NunoCPNP)
+
+## License
+
+This project is licensed under the MIT License
