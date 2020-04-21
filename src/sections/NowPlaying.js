@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import styled from '@emotion/styled'
 import axios from 'axios'
@@ -22,6 +22,26 @@ const NowPlaying = () => {
     })()
     // eslint-disable-next-line
   }, [])
+
+  const [isFetching, setIsFetching] = useState(false)
+
+  function isScrolling() {
+    if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) {
+      return
+    } else {
+      setIsFetching(true)
+    }
+  }
+
+  useEffect(()=>{
+    window.addEventListener("scroll", isScrolling);
+    return () => window.removeEventListener("scroll", isScrolling);}, [])
+  
+  useEffect(() => {
+    if (isFetching) {
+      console.log('Fetch data')
+    }
+  }, [isFetching])
 
   return (
     <>
