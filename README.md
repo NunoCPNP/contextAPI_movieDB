@@ -1,4 +1,4 @@
-Demo project connected to [TheMovieDB](https://www.themoviedb.org/) api and using React Context API and hooks to manage state.
+Demo project connected to [TheMovieDB](https://www.themoviedb.org/) api using React Context API and hooks to manage state.
 
 Article describing the process coming soon on [DEV](http://dev.to/) ...
 
