@@ -1,29 +1,20 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import styled from '@emotion/styled'
-import axios from 'axios'
-
-import { store } from '../store/store'
 
 import SideBar from '../components/SideBar'
 import Movie from '../components/Movie'
 
+import { store } from '../store/store'
+
+import { getMovies } from "../api/getMovies"
+
 const NowPlaying = () => {
   const globalState = useContext(store)
   const { dispatch, state } = globalState
-
-  useEffect(() => {
-    ;(async function getMovies() {
-      const response = await axios.get(
-        `${process.env.REACT_APP_APIURL}/3/movie/now_playing?api_key=${process.env.REACT_APP_APIKEY}&language=en-US&page=1`,
-      )
-      const data = response.data.results
-      dispatch({ type: 'GET_MOVIES', payload: data })
-    })()
-    // eslint-disable-next-line
-  }, [])
-
+  
   const [isFetching, setIsFetching] = useState(false)
+  const [page, setPage] = useState(1)
 
   function isScrolling() {
     if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) {
@@ -35,11 +26,16 @@ const NowPlaying = () => {
 
   useEffect(()=>{
     window.addEventListener("scroll", isScrolling);
-    return () => window.removeEventListener("scroll", isScrolling);}, [])
+    return () => window.removeEventListener("scroll", isScrolling);
+  }, [])
   
   useEffect(() => {
+    getMovies(page, dispatch)
+  }, [page])
+
+  useEffect(() => {
     if (isFetching) {
-      console.log('Fetch data')
+      setPage((prevState) => prevState + 1)
     }
   }, [isFetching])
 

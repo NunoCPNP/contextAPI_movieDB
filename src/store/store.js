@@ -16,7 +16,7 @@ const StateProvider = ({ children }) => {
       case 'GET_MOVIES':
         return {
           ...state,
-          movies: [...action.payload],
+          movies: [...state.movies, ...action.payload],
         }
 
       case 'ADD_TO_WISHLIST':
