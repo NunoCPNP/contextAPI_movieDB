@@ -1,16 +1,18 @@
 import React, { useContext, useRef } from 'react'
 import styled from '@emotion/styled'
 
+import useClickOutside from '../hooks/useClickOutside'
+
 import { store } from '../store/store'
 
-import useClickOutside from "../hooks/useClickOutside"
+import { secondaryA, white } from '../styles/variables'
 
 const SideBar = () => {
   const globalState = useContext(store)
   const { state, dispatch } = globalState
 
   const reference = useRef(null)
-  const referenceHandler = () => dispatch({ type: "TOGGLE_SIDEBAR" })
+  const referenceHandler = () => dispatch({ type: 'TOGGLE_SIDEBAR' })
 
   useClickOutside(reference, referenceHandler)
 
@@ -21,7 +23,7 @@ const SideBar = () => {
           <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
           <div>
             <p onClick={() => dispatch({ type: 'REMOVE_FROM_WISHLIST', payload: movie.id })}>{movie.title}</p>
-            <span>{movie.release_date}</span>
+            <span>Release Date: {movie.release_date}</span>
           </div>
         </Item>
       ))}
@@ -32,20 +34,23 @@ const SideBar = () => {
 export default SideBar
 
 const Container = styled('div')`
-  background-color: black;
-  color: white;
+  background-color: ${secondaryA};
+  color: ${white};
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   padding: 1rem;
   min-width: 50rem;
+  padding-top: 6rem;
 `
 const Item = styled('div')`
   display: flex;
+  align-items: center;
   margin: 1rem;
 
   img {
+    border-radius: 0.5rem;
     max-width: 3rem;
     margin-right: 1rem;
   }

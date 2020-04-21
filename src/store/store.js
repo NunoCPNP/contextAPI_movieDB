@@ -32,14 +32,13 @@ const StateProvider = ({ children }) => {
 
         return {
           ...state,
-          wishlist: [...filteredList]
+          wishlist: [...filteredList],
         }
 
       case 'TOGGLE_SIDEBAR':
-        
         return {
           ...state,
-          isSideBarOpen: !state.isSideBarOpen
+          isSideBarOpen: !state.isSideBarOpen,
         }
 
       default:

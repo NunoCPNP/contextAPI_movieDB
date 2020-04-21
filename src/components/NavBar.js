@@ -3,11 +3,13 @@ import styled from '@emotion/styled'
 
 import Wishlist from './Wishlist'
 
+import { primaryA, white } from "../styles/variables"
+
 const NavBar = () => {
   return (
     <Container>
       <div>
-        <span>The Movie DB</span>
+        <span>ContextAPI Demo</span>
       </div>
       <Wishlist />
     </Container>
@@ -24,12 +26,12 @@ const Container = styled('nav')`
   display: flex;
   justify-content: space-between;
   padding: 1.5rem 3rem;
-  font-size: 1.5rem;
-  background-color: black;
-  color: white;
+  background-color: ${primaryA};
+  color: ${white};
+  z-index: 10;
 
   span {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 600;
     text-transform: uppercase;
   }

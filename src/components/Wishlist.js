@@ -5,32 +5,45 @@ import { FaHeart } from 'react-icons/fa'
 
 import { store } from '../store/store'
 
+import { white } from '../styles/variables'
+
 const Wishlist = () => {
   const globalState = useContext(store)
   const { state, dispatch } = globalState
 
   return (
-    <Container>
-      <button onClick={() => dispatch({ type: 'TOGGLE_SIDEBAR' })}>Wishlist</button>
-      {state.wishlist.length > 0 ? <FaHeart color="red" /> : <FaHeart color="white" />}
-      <span>{`(${state.wishlist.length})`}</span>
-    </Container>
+    <>
+      {state.isSideBarOpen ? null : (
+        <Container>
+          {state.wishlist.length > 0 ? (
+            <>
+              <button onClick={() => dispatch({ type: 'TOGGLE_SIDEBAR' })}>Wishlist</button>
+              <FaHeart color="red" />
+              <span>{`( ${state.wishlist.length} )`}</span>
+            </>
+          ) : (
+            <FaHeart color="white" />
+          )}
+        </Container>
+      )}
+    </>
   )
 }
 
 export default Wishlist
 
 const Container = styled('div')`
+  font-size: 1.1rem;
   display: flex;
   align-items: center;
 
   button {
     cursor: pointer;
+    font-size: 1.1rem;
     font-family: 'Montserrat', sans-serif;
-    font-size: 1rem;
     font-weight: 600;
     text-transform: uppercase;
-    color: white;
+    color: ${white};
     border: none;
     background-color: transparent;
     padding: 0 1rem;

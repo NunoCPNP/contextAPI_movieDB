@@ -1,12 +1,15 @@
 import React from 'react'
 import { Global, css } from '@emotion/core'
 
+import { primaryB } from './variables'
+
 const GlobalStyle = () => {
   return (
     <Global
       styles={css`
-        @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700,900&display=swap");
-        
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,900&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Cairo:400,700,900&display=swap');
+
         *,
         *::after,
         *::before {
@@ -21,7 +24,8 @@ const GlobalStyle = () => {
         body {
           box-sizing: border-box;
           font-family: 'Montserrat', sans-serif;
-          }
+          background-color: ${primaryB};
+        }
       `}
     />
   )
