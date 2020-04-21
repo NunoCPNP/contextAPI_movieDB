@@ -1,26 +1,24 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Demo project connected to [TheMovieDB](https://www.themoviedb.org/) api and using React Context API and hooks to manage state.
 
-## Available Scripts
+Article describing the process coming soon on [DEV](http://dev.to/) ...
+
+### Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+#### `npm start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#### `npm run build`
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+You need to create a .env file and provide the following variables:
 
-### `npm test`
+```
+REACT_APP_APIKEY
+REACT_APP_APIURL
+```
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Check [TheMovieDB](https://www.themoviedb.org/) to get your own API Key
 
-### `npm run build`
+### Live Demo
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+[Context API Demo](https://contextapidemo.netlify.app/)

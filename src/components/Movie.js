@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from 'prop-types';
 import styled from "@emotion/styled"
 
 import Button from "./Button"
@@ -10,6 +11,12 @@ const Movie = ({ id, title, poster }) => {
       <Button id={id} />
     </Container> 
   )
+}
+
+Movie.propTypes = {
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  poster: PropTypes.string.isRequired
 }
 
 export default Movie

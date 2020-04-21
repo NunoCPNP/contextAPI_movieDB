@@ -31,6 +31,7 @@ const MovieList = () => {
 export default MovieList
 
 const GridContainer = styled('div')`
+  margin: auto;
   padding: 2rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));

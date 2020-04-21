@@ -1,4 +1,5 @@
 import React, { useContext } from "react"
+import PropTypes from 'prop-types';
 import styled from "@emotion/styled"
 
 import { store } from "../store/store"
@@ -10,6 +11,10 @@ const Button = ({id}) => {
   return (
     <StyledButton onClick={() => dispatch({ type: "ADD_TO_WISHLIST", payload: id })}>Add to Wishlist</StyledButton>
   )
+}
+
+Button.propTypes = {
+  id: PropTypes.number.isRequired
 }
 
 export default Button
