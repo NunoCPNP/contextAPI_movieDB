@@ -1,24 +1,27 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useContext } from "react"
 import styled from "@emotion/styled"
 import axios from "axios"
+
+import { store } from "../store/store"
 
 import Movie from "../components/Movie"
 
 const MovieList = () => {
-  const [movies, setMovies] = useState([])
+  const globalState = useContext(store);
+  const { dispatch, state } = globalState;
 
   useEffect(() => {
     (async function getMovies() {
       const response = await axios.get(`${process.env.REACT_APP_APIURL}/3/movie/popular?api_key=${process.env.REACT_APP_APIKEY}&language=en-US&page=1`)
       const data = response.data.results
-      setMovies(data)
+      dispatch({ type: 'GET_MOVIES', payload: data })
     })()
+    // eslint-disable-next-line
   }, [])
-
-  console.log("Movies: ", movies)
+  
   return (
     <GridContainer>
-      {movies.map((movie) => (
+      {state.movies.map((movie) => (
         <Movie key={movie.id} title={movie.title} poster={movie.poster_path} />
       ))}
     </GridContainer>

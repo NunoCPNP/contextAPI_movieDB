@@ -4,16 +4,22 @@ import styled from "@emotion/styled"
 import NavBar from "./sections/NavBar"
 import MovieList from "./sections/MovieList"
 
+import { StateProvider } from './store/store.js';
+
 import Global from "./styles/Global"
 
 function App() {
   return (
-    <>
-      <NavBar />
-      <Main>
-        <MovieList />
-      </Main>
-      <Global />
+    <> 
+      <StateProvider>
+        <>
+          <NavBar />
+          <Main>
+            <MovieList />
+          </Main>
+          <Global />
+        </>
+      </StateProvider>
     </>
   );
 }
