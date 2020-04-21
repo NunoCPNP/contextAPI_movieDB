@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
+import { secondaryB } from '../styles/variables'
+
 const Loader = () => (
   <Wrapper>
     <div>
@@ -25,8 +27,8 @@ const Wrapper = styled('div')`
     width: 2rem;
     height: 2rem;
     border-radius: 100%;
-    background-color: black;
-    margin: 3.5rem .5rem;
+    background-color: ${secondaryB};
+    margin: 3.5rem 0.5rem;
   }
 
   span:nth-of-type(1) {
