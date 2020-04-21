@@ -5,7 +5,7 @@ import { store } from '../store/store'
 
 const SideBar = () => {
   const globalState = useContext(store)
-  const { state } = globalState
+  const { state, dispatch } = globalState
 
   return (
     <Container>
@@ -13,7 +13,7 @@ const SideBar = () => {
           <Item key={movie.id}>
             <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
             <div>
-              <p>{movie.title}</p>
+              <p onClick={() => dispatch({ type: "REMOVE_FROM_WISHLIST", payload: movie. id })}>{movie.title}</p>
               <span>{movie.release_date}</span>
             </div>
           </Item>
@@ -33,6 +33,7 @@ const Container = styled('div')`
   right: 0;
   bottom: 0;
   padding: 1rem;
+  min-width: 50rem;
 `
 const Item = styled('div')`
   display: flex;
@@ -44,6 +45,7 @@ const Item = styled('div')`
   }
 
   p {
+    cursor: pointer;
     font-size: 1.2rem;
     font-weight: 600;
     padding-bottom: .5rem;

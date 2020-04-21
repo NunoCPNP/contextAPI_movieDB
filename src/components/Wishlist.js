@@ -11,17 +11,8 @@ const Wishlist = () => {
 
   return (
     <Container>
-      {state.wishlist.length > 0 ? (
-        <>
-          <button onClick={() => dispatch({ type: 'TOGGLE_SIDEBAR' })}>Wishlist</button>
-          <FaHeart color="red" />
-        </>
-      ) : (
-        <>
-          <span>Wishlist</span>
-          <FaHeart color="white" />
-        </>
-      )}
+      <button onClick={() => dispatch({ type: 'TOGGLE_SIDEBAR' })}>Wishlist</button>
+      {state.wishlist.length > 0 ? <FaHeart color="red" /> : <FaHeart color="white" />}
       <span>{`(${state.wishlist.length})`}</span>
     </Container>
   )
@@ -32,10 +23,6 @@ export default Wishlist
 const Container = styled('div')`
   display: flex;
   align-items: center;
-
-  span {
-    padding: 0 1rem;
-  }
 
   button {
     cursor: pointer;

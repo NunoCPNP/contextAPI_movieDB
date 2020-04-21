@@ -27,6 +27,14 @@ const StateProvider = ({ children }) => {
           wishlist: [...state.wishlist, item],
         }
 
+      case 'REMOVE_FROM_WISHLIST':
+        const filteredList = state.wishlist.filter((item) => item.id !== action.payload)
+
+        return {
+          ...state,
+          wishlist: [...filteredList]
+        }
+
       case 'TOGGLE_SIDEBAR':
         
         return {
