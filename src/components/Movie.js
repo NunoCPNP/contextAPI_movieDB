@@ -29,7 +29,7 @@ export default Movie
 
 const Container = styled('div')`
   display: grid;
-  grid-template-rows: auto auto;
+  grid-template-rows: auto 2.6rem;
   grid-gap: 1.4rem;
 
   img {
