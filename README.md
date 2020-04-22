@@ -47,6 +47,7 @@ and copy the build directory to your favorite static website hosting platform
 - [React Router](https://github.com/ReactTraining/react-router#readme)
 - [EMotion](https://emotion.sh/docs/introduction)
 - [Framer Motion](https://www.framer.com/motion/)
+- [React Intersection Observer](https://github.com/thebuilder/react-intersection-observer#readme)
 
 <!-- ## Contributing
 
@@ -58,4 +59,4 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 
 ## License
 
-This project is licensed under the MIT License
+The code is available under the [MIT](https://github.com/carloscuesta/gitmoji/blob/master/LICENSE) license.

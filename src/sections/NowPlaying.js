@@ -8,7 +8,7 @@ import Movie from '../components/Movie'
 
 import { store } from '../store/store'
 
-import { getMovies } from '../api/getMovies'
+import { getNowPlaying } from '../api/getMovies'
 
 import { secondaryB } from '../styles/variables'
 
@@ -23,16 +23,17 @@ const NowPlaying = () => {
   })
 
   useEffect(() => {
-    getMovies(page, dispatch)
+    getNowPlaying(page, dispatch)
     setPage((prevState) => prevState + 1)
     //eslint-disable-next-line
   }, [])
 
   useEffect(() => {
     if (inView === true) {
-      getMovies(page, dispatch)
+      getNowPlaying(page, dispatch)
       setPage((prevState) => prevState + 1)
     }
+    //eslint-disable-next-line
   }, [inView])
 
   return (
@@ -46,7 +47,13 @@ const NowPlaying = () => {
       </AnimatePresence>
       <GridContainer>
         {state.movies.map((movie) => (
-          <Movie key={movie.id} id={movie.id} title={movie.title} poster={movie.poster_path} />
+          <Movie
+            key={movie.id}
+            id={movie.id}
+            title={movie.title}
+            poster={movie.poster_path}
+            vaverage={movie.vote_average}
+          />
         ))}
       </GridContainer>
       <Intersection ref={ref}>...</Intersection>
