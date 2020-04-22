@@ -10,6 +10,8 @@ import { store } from '../store/store'
 
 import { getMovies } from '../api/getMovies'
 
+import { secondaryB } from '../styles/variables'
+
 const NowPlaying = () => {
   const globalState = useContext(store)
   const { dispatch, state } = globalState
@@ -17,16 +19,21 @@ const NowPlaying = () => {
   const [page, setPage] = useState(1)
 
   const [ref, inView, entry] = useInView({
-    /* Optional options */
-    threshold: 0,
+    threshold: 0.5,
   })
 
   useEffect(() => {
     getMovies(page, dispatch)
+    setPage((prevState) => prevState + 1)
     //eslint-disable-next-line
   }, [])
 
-  console.log("InView: ", inView)
+  useEffect(() => {
+    if (inView === true) {
+      getMovies(page, dispatch)
+      setPage((prevState) => prevState + 1)
+    }
+  }, [inView])
 
   return (
     <>
@@ -42,7 +49,7 @@ const NowPlaying = () => {
           <Movie key={movie.id} id={movie.id} title={movie.title} poster={movie.poster_path} />
         ))}
       </GridContainer>
-      <div ref={ref}></div>
+      <Intersection ref={ref}>...</Intersection>
     </>
   )
 }
@@ -64,4 +71,11 @@ const Animation = styled(motion.div)`
   top: 0;
   right: 0;
   bottom: 0;
+`
+
+const Intersection = styled('div')`
+  text-align: center;
+  color: ${secondaryB};
+  font-size: 4rem;
+  padding-bottom: 1rem;
 `
