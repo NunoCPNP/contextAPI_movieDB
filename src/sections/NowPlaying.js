@@ -23,6 +23,7 @@ const NowPlaying = () => {
   })
 
   useEffect(() => {
+    dispatch({ type: 'RESET_MOVIES' })
     dispatch({ type: 'GET_WHISLIST_FROM_STORAGE' })
     getNowPlaying(page, dispatch)
     setPage((prevState) => prevState + 1)

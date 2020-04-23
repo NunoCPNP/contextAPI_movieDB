@@ -15,14 +15,15 @@ const Button = ({ id }) => {
 
   const [icon, setIcon] = useState(false)
 
+  const isOnWishlish = state.wishlist.filter((movie) => movie.id === id)
+
   useEffect(() => {
-    const isOnWishlish = state.wishlist.filter((movie) => movie.id === id)
     if (isOnWishlish.length > 0) {
       setIcon(true)
     } else {
       setIcon(false)
     }
-  }, [id, state.wishlist])
+  }, [id, isOnWishlish])
 
   return (
     <Container
@@ -30,7 +31,11 @@ const Button = ({ id }) => {
       animate={{ opacity: 1 }}
       whileHover={{ y: -2 }}
       whileTap={{ y: 2 }}
-      onClick={() => dispatch({ type: 'ADD_TO_WISHLIST', payload: id })}
+      onClick={() => {
+        if (isOnWishlish.length === 0) {
+          dispatch({ type: 'ADD_TO_WISHLIST', payload: id })
+        }
+      }}
     >
       <span>Add to Wishlist</span>
       {icon ? <IoIosHeart key={id} color="red" /> : <IoIosHeartEmpty key={id} />}

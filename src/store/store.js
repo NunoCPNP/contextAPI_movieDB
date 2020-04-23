@@ -40,17 +40,26 @@ const StateProvider = ({ children }) => {
       case 'REMOVE_FROM_WISHLIST':
         const filteredList = state.wishlist.filter((item) => item.id !== action.payload)
 
+        localStorage.setItem('WishList', JSON.stringify(filteredList))
+
         return {
           ...state,
           wishlist: [...filteredList],
         }
 
       case 'GET_WHISLIST_FROM_STORAGE':
-        const returnedWishlist = JSON.parse(localStorage.getItem('WishList'))
+        let savedWishlist
+        const storedWishlist = JSON.parse(localStorage.getItem('WishList'))
+
+        if (storedWishlist === null) {
+          savedWishlist = []
+        } else {
+          savedWishlist = storedWishlist
+        }
 
         return {
           ...state,
-          wishlist: [...returnedWishlist],
+          wishlist: [...savedWishlist],
         }
 
       case 'TOGGLE_SIDEBAR':
