@@ -5,8 +5,6 @@ import { FaHeart } from 'react-icons/fa'
 
 import { store } from '../store/store'
 
-import { white } from '../styles/variables'
-
 const Wishlist = () => {
   const globalState = useContext(store)
   const { state, dispatch } = globalState

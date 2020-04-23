@@ -40,7 +40,7 @@ const NowPlaying = () => {
     <>
       <AnimatePresence>
         {state.isSideBarOpen && (
-          <Animation initial={{}} animate={{ x: 30 }} exit={{ x: 500 }}>
+          <Animation initial={{ x: 0 }} animate={{ x: 30 }} exit={{ x: 500 }}>
             <SideBar />
           </Animation>
         )}

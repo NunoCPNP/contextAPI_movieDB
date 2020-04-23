@@ -11,9 +11,25 @@ const Movie = ({ id, title, poster, vaverage }) => {
   const w342 = `https://image.tmdb.org/t/p/w342/${poster}`
   const w500 = `https://image.tmdb.org/t/p/w500/${poster}`
 
+  const list = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        when: 'beforeChildren',
+        staggerChildren: 0.3,
+      },
+    },
+  }
+
+  const item = {
+    hidden: { y: 100, opacity: 0 },
+    visible: { y: 0, opacity: 1 },
+  }
+
   return (
-    <Container>
-      <motion.div whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.94 }}>
+    <Container variants={list} initial="hidden" animate="visible">
+      <motion.div variants={item}>
         <img src={w342} srcSet={`${w185} 185w, ${w342} 342w, ${w500} 500w`} alt={title} />
         <Votes vaverage={vaverage} />
       </motion.div>
@@ -31,7 +47,7 @@ Movie.propTypes = {
 
 export default Movie
 
-const Container = styled('div')`
+const Container = styled(motion.div)`
   position: relative;
   display: grid;
   grid-template-rows: auto 2.6rem;
