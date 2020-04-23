@@ -54,6 +54,7 @@ const Container = styled(motion.div)`
   grid-gap: 1.4rem;
 
   img {
+    cursor: pointer;
     width: 100%;
     border-radius: 0.4rem;
   }

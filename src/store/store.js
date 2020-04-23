@@ -4,6 +4,7 @@ const initialState = {
   movies: [],
   wishlist: [],
   isSideBarOpen: false,
+  selectedSection: 1
 }
 
 const store = createContext(initialState)
@@ -47,7 +48,7 @@ const StateProvider = ({ children }) => {
           wishlist: [...filteredList],
         }
 
-      case 'GET_WHISLIST_FROM_STORAGE':
+      case 'GET_WISHLIST_FROM_STORAGE':
         let savedWishlist
         const storedWishlist = JSON.parse(localStorage.getItem('WishList'))
 
@@ -66,6 +67,12 @@ const StateProvider = ({ children }) => {
         return {
           ...state,
           isSideBarOpen: !state.isSideBarOpen,
+        }
+
+      case 'CHANGE_SECTION':
+        return {
+          ...state,
+          selectedSection: action.payload
         }
 
       default:
