@@ -2,13 +2,18 @@
 
 Demo Application of React Context API and React Hooks to manage local and global state
 
-This project is connected [TheMovieDB](https://www.themoviedb.org/) API
-
 Tutorial describing the process coming soon on [DEV](http://dev.to/) ...
 
 ## Live Demo
 
 [You can check a live version of the project here !](https://contextapidemo.netlify.app/)
+
+## Features
+
+- Connected to [TheMovieDB](https://www.themoviedb.org/) API
+- Intersection Observable for Lazy API calls
+- Local Storage data persistance
+- PWA
 
 ## Getting Started
 
