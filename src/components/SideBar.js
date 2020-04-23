@@ -1,24 +1,26 @@
 import React, { useContext } from 'react'
 import styled from '@emotion/styled'
 
+import SideBarItem from './SideBarItem'
+
 import { store } from '../store/store'
 
 import { secondaryA, white } from '../styles/variables'
 
 const SideBar = () => {
   const globalState = useContext(store)
-  const { state, dispatch } = globalState
+  const { state } = globalState
 
   return (
     <Container>
       {state.wishlist.map((movie) => (
-        <Item key={movie.id}>
-          <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
-          <div>
-            <p onClick={() => dispatch({ type: 'REMOVE_FROM_WISHLIST', payload: movie.id })}>{movie.title}</p>
-            <span>Release Date: {movie.release_date}</span>
-          </div>
-        </Item>
+        <SideBarItem
+          key={movie.id}
+          id={movie.id}
+          poster_path={movie.poster_path}
+          title={movie.title}
+          releaseDate={movie.release_date}
+        />
       ))}
     </Container>
   )
@@ -34,24 +36,6 @@ const Container = styled('div')`
   right: 0;
   bottom: 0;
   padding: 1rem;
-  min-width: 50rem;
+  min-width: 41.4rem;
   padding-top: 6rem;
-`
-const Item = styled('div')`
-  display: flex;
-  align-items: center;
-  margin: 1rem;
-
-  img {
-    border-radius: 0.5rem;
-    max-width: 3rem;
-    margin-right: 1rem;
-  }
-
-  p {
-    cursor: pointer;
-    font-size: 1.2rem;
-    font-weight: 600;
-    padding-bottom: 0.5rem;
-  }
 `

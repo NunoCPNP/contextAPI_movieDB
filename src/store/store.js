@@ -7,7 +7,7 @@ const initialState = {
 }
 
 const store = createContext(initialState)
-store.displayName = 'ContextGlobalState';
+store.displayName = 'ContextGlobalState'
 
 const { Provider } = store
 
@@ -20,12 +20,21 @@ const StateProvider = ({ children }) => {
           movies: [...state.movies, ...action.payload],
         }
 
+      case 'RESET_MOVIES':
+        return {
+          ...state,
+          movies: [],
+        }
+
       case 'ADD_TO_WISHLIST':
         const item = state.movies.filter((movie) => movie.id === action.payload)[0]
+        const wishlist = [...state.wishlist, item]
+
+        localStorage.setItem('WishList', JSON.stringify(wishlist))
 
         return {
           ...state,
-          wishlist: [...state.wishlist, item],
+          wishlist,
         }
 
       case 'REMOVE_FROM_WISHLIST':
@@ -34,6 +43,14 @@ const StateProvider = ({ children }) => {
         return {
           ...state,
           wishlist: [...filteredList],
+        }
+
+      case 'GET_WHISLIST_FROM_STORAGE':
+        const returnedWishlist = JSON.parse(localStorage.getItem('WishList'))
+
+        return {
+          ...state,
+          wishlist: [...returnedWishlist],
         }
 
       case 'TOGGLE_SIDEBAR':

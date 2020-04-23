@@ -3,13 +3,13 @@ import styled from '@emotion/styled'
 
 import Wishlist from './Wishlist'
 
-import { primaryA, white } from "../styles/variables"
+import { primaryA, white } from '../styles/variables'
 
 const NavBar = () => {
   return (
     <Container>
       <div>
-        <span>ContextAPI Demo</span>
+        <span onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>ContextAPI Demo</span>
       </div>
       <Wishlist />
     </Container>
@@ -31,6 +31,7 @@ const Container = styled('nav')`
   z-index: 10;
 
   span {
+    cursor: pointer;
     font-size: 1.1rem;
     font-weight: 600;
     text-transform: uppercase;
