@@ -65,7 +65,7 @@ export default NowPlaying
 
 const GridContainer = styled('div')`
   margin: auto;
-  padding: 8rem 2rem;
+  padding: 2rem 2rem 8rem 2rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   max-width: 120rem;

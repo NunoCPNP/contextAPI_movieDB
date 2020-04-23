@@ -13,19 +13,11 @@ const Wishlist = () => {
 
   return (
     <>
-      {state.isSideBarOpen ? null : (
-        <Container>
-          {state.wishlist.length > 0 ? (
-            <>
-              <button onClick={() => dispatch({ type: 'TOGGLE_SIDEBAR' })}>Wishlist</button>
-              <FaHeart color="red" />
-              <span>{`( ${state.wishlist.length} )`}</span>
-            </>
-          ) : (
-            <FaHeart color="white" />
-          )}
-        </Container>
-      )}
+      <Container>
+        <button onClick={() => dispatch({ type: 'TOGGLE_SIDEBAR' })}>Wishlist</button>
+        {state.wishlist.length > 0 ? <FaHeart color="red" /> : <FaHeart color="white" />}
+        <span>{`( ${state.wishlist.length} )`}</span>
+      </Container>
     </>
   )
 }

@@ -20,7 +20,7 @@ Votes.propTypes = {
 export default Votes
 
 const StyledDiv = styled('div')`
-  z-index: 5;
+  z-index: 2;
   position: absolute;
   top: 1rem;
   left: 1rem;

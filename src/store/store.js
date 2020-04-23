@@ -7,6 +7,7 @@ const initialState = {
 }
 
 const store = createContext(initialState)
+store.displayName = 'ContextGlobalState';
 
 const { Provider } = store
 

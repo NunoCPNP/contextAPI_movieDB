@@ -1,7 +1,5 @@
-import React, { useContext, useRef } from 'react'
+import React, { useContext } from 'react'
 import styled from '@emotion/styled'
-
-import useClickOutside from '../hooks/useClickOutside'
 
 import { store } from '../store/store'
 
@@ -11,13 +9,8 @@ const SideBar = () => {
   const globalState = useContext(store)
   const { state, dispatch } = globalState
 
-  const reference = useRef(null)
-  const referenceHandler = () => dispatch({ type: 'TOGGLE_SIDEBAR' })
-
-  useClickOutside(reference, referenceHandler)
-
   return (
-    <Container ref={reference}>
+    <Container>
       {state.wishlist.map((movie) => (
         <Item key={movie.id}>
           <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
