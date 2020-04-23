@@ -13,9 +13,13 @@ const Wishlist = () => {
 
   return (
     <>
-      <Container>
-        <button onClick={() => dispatch({ type: 'TOGGLE_SIDEBAR' })}>Wishlist</button>
-        {state.wishlist.length > 0 ? <FaHeart color="red" /> : <FaHeart color="white" />}
+      <Container onClick={() => dispatch({ type: 'TOGGLE_SIDEBAR' })}>
+        <span>Wishlist</span>
+        {state.wishlist.length > 0 ? (
+          <FaHeart color="red" className="icon" />
+        ) : (
+          <FaHeart color="white" className="icon" />
+        )}
         <span>{`( ${state.wishlist.length} )`}</span>
       </Container>
     </>
@@ -25,23 +29,16 @@ const Wishlist = () => {
 export default Wishlist
 
 const Container = styled('div')`
+  cursor: pointer;
   font-size: 1.1rem;
   display: flex;
   align-items: center;
 
-  button {
-    cursor: pointer;
-    font-size: 1.1rem;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: ${white};
-    border: none;
-    background-color: transparent;
-    padding: 0 1rem;
+  span {
+    padding: 0 1rem 0 1rem;
   }
 
-  span {
-    padding-left: 1rem;
+  .icon {
+    font-size: 1.8rem;
   }
 `

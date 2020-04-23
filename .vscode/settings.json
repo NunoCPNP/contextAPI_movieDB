@@ -60,6 +60,7 @@
     "middlewares",
     "persistor",
     "theming",
+    "toprated",
     "vaverage"
   ],
   "editor.tabSize": 2

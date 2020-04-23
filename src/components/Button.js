@@ -3,6 +3,8 @@ import { motion } from 'framer-motion'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 
+import { IoIosHeartEmpty } from 'react-icons/io'
+
 import { store } from '../store/store'
 
 import { black, secondaryB } from '../styles/variables'
@@ -12,13 +14,14 @@ const Button = ({ id }) => {
   const { dispatch } = globalState
 
   return (
-    <StyledButton
+    <Container
       whileHover={{ y: -2 }}
       whileTap={{ y: 2 }}
       onClick={() => dispatch({ type: 'ADD_TO_WISHLIST', payload: id })}
     >
-      Add to Wishlist
-    </StyledButton>
+      <span>Add to Wishlist</span>
+      <IoIosHeartEmpty />
+    </Container>
   )
 }
 
@@ -28,17 +31,19 @@ Button.propTypes = {
 
 export default Button
 
-const StyledButton = styled(motion.button)`
-  font-family: 'Cairo', sans-serif;
-  color: ${black};
+const Container = styled(motion.div)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: ${secondaryB};
-  border: none;
-  border-radius: 0.3rem;
+  border-radius: 0.5rem;
   cursor: pointer;
-  width: 100%;
-  transition: all 300ms linear 0s;
-  padding: 0.2rem;
-  font-size: 1.2rem;
-  font-weight: 700;
+  font-size: 1.4rem;
+  font-weight: 600;
   text-transform: uppercase;
+
+  span {
+    font-size: 1.1rem;
+    padding-right: 0.5rem;
+  }
 `
