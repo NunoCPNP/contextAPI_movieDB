@@ -32,20 +32,43 @@ const MovieDetails = () => {
       {movie === undefined ? (
         <Loader />
       ) : (
-        <Container>
-          <Cover>
-            <img src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`} />
-          </Cover>
-          <Details>
-            <h2>{movie.title}</h2>
-            <ul>
-              {movie.genres.map((genre) => (
-                <li key={genre.id}>{genre.name}</li>
-              ))}
-            </ul>
-            <div className="overview">{movie.overview}</div>
-          </Details>
-        </Container>
+        <>
+          <Container>
+            <Cover>
+              <img src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`} />
+            </Cover>
+            <Details>
+              <Header>
+                <h2>{movie.title}</h2>
+                <div className="info">
+                  {movie.spoken_languages[0].name} / {movie.runtime} min / {movie.release_date.slice(0, 4)}
+                </div>
+                <div>
+                  <ul>
+                    {movie.genres.map((genre) => (
+                      <li key={genre.id}>{genre.name}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="info">
+                  Rating: <span>{movie.vote_average}</span>
+                </div>
+              </Header>
+              <div className="overview">{movie.overview}</div>
+            </Details>
+          </Container>
+          <Cast>
+            {credits !== undefined &&
+              credits.cast.map((cast) => {
+                return (
+                  <div key={cast.cast_id}>
+                    <img src={`http://image.tmdb.org/t/p/w185/${cast.profile_path}`} alt={cast.name} />
+                    <span>{cast.name}</span>
+                  </div>
+                )
+              })}
+          </Cast>
+        </>
       )}
     </>
   )
@@ -73,7 +96,6 @@ const Details = styled('div')`
     font-weight: 700;
     text-shadow: rgb(38, 37, 51) 0px 2px 2px;
     letter-spacing: 0.1rem;
-    padding-bottom: 1rem;
   }
 
   ul {
@@ -97,8 +119,39 @@ const Details = styled('div')`
   }
 
   .overview {
-    padding-top: 5rem;
-    font-size: 2rem;
-    line-height: 3rem;
+    padding-top: 4rem;
+    font-size: 1.5rem;
+    line-height: 2.2rem;
+  }
+`
+
+const Header = styled('div')`
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  grid-row-gap: 1rem;
+
+  .info {
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: right;
+    font-size: 1.5rem;
+    padding: 0 0.3rem;
+    font-weight: 600;
+    text-shadow: rgb(38, 37, 51) 0px 2px 2px;
+
+    span {
+      color: ${secondaryB};
+    }
+  }
+`
+
+const Cast = styled('div')`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(5rem, 1fr));
+
+  img {
+    width: auto;
+    height: auto;
   }
 `
