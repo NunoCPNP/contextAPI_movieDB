@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import styled from '@emotion/styled'
 
+import BlurBackground from '../components/BlurBlackGround'
 import SideBar from '../components/SideBar'
 import Movie from '../components/Movie'
 
@@ -51,9 +52,14 @@ const NowPlaying = () => {
     <>
       <AnimatePresence>
         {state.isSideBarOpen && (
-          <Animation initial={{ x: 0 }} animate={{ x: 30 }} exit={{ x: 500 }}>
-            <SideBar />
-          </Animation>
+          <>
+            <motion.div initial={{ x: 2000 }} animate={{ x: 0 }} exit={{ x: 2000 }}>
+              <BlurBackground />
+            </motion.div>
+            <Animation initial={{ x: 0 }} animate={{ x: 30 }} exit={{ x: 500 }}>
+              <SideBar />
+            </Animation>
+          </>
         )}
       </AnimatePresence>
       <GridContainer>

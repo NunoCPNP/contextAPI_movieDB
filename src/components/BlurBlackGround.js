@@ -14,8 +14,8 @@ const BlurBackGround = () => {
 export default BlurBackGround
 
 const Wrapper = styled('div')`
-  z-index: 3;
   position: fixed;
+  z-index: 5;
   top: 0;
   bottom: 0;
   left: 0;
@@ -23,8 +23,9 @@ const Wrapper = styled('div')`
 `
 
 const Background = styled('div')`
+  background: ${primaryA};
+  opacity: 1;
   width: 100vw;
   height: 100vh;
-  background: ${primaryA};
-  opacity: 0.9;
+  opacity: 0.5;
 `
