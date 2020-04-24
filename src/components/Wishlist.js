@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
+import { FaHeart } from 'react-icons/fa'
 import styled from '@emotion/styled'
 
-import { FaHeart } from 'react-icons/fa'
-
+//* Global State
 import { store } from '../store/store'
 
 const Wishlist = () => {

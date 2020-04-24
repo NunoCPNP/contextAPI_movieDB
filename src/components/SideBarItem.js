@@ -1,8 +1,9 @@
 import React, { useContext } from 'react'
+import { IoIosCloseCircleOutline } from 'react-icons/io'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
-import { IoIosCloseCircleOutline } from 'react-icons/io'
 
+//* Global State
 import { store } from '../store/store'
 
 const SideBarItem = ({ id, poster_path, title, releaseDate }) => {

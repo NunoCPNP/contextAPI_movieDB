@@ -3,14 +3,17 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import styled from '@emotion/styled'
 
-import BlurBackground from '../components/BlurBlackGround'
+//* Components
 import SideBar from '../components/SideBar'
 import Movie from '../components/Movie'
 
+//* Global State
 import { store } from '../store/store'
 
+//* API
 import { getMovies } from '../api/getMovies'
 
+//* Styles
 import { secondaryB } from '../styles/variables'
 
 const NowPlaying = () => {
@@ -27,8 +30,6 @@ const NowPlaying = () => {
 
   useEffect(() => {
     setPage(1)
-    console.log('Page:  ', page)
-    console.log('Selected Section: ', selectedSection)
     dispatch({ type: 'RESET_MOVIES' })
   }, [selectedSection])
 
@@ -37,7 +38,6 @@ const NowPlaying = () => {
     dispatch({ type: 'GET_WISHLIST_FROM_STORAGE' })
     getMovies(page, dispatch, selectedSection)
     setPage((prevState) => prevState + 1)
-    //eslint-disable-next-line
   }, [])
 
   useEffect(() => {
@@ -45,21 +45,15 @@ const NowPlaying = () => {
       getMovies(page, dispatch, selectedSection)
       setPage((prevState) => prevState + 1)
     }
-    //eslint-disable-next-line
   }, [inView])
 
   return (
     <>
       <AnimatePresence>
         {state.isSideBarOpen && (
-          <>
-            <motion.div initial={{ x: 2000 }} animate={{ x: 0 }} exit={{ x: 2000 }}>
-              <BlurBackground />
-            </motion.div>
-            <Animation initial={{ x: 0 }} animate={{ x: 30 }} exit={{ x: 500 }}>
-              <SideBar />
-            </Animation>
-          </>
+          <Animation initial={{ x: 0 }} animate={{ x: 30 }} exit={{ x: 500 }}>
+            <SideBar />
+          </Animation>
         )}
       </AnimatePresence>
       <GridContainer>

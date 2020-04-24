@@ -1,8 +1,11 @@
 import React, { useContext } from 'react'
+import { Link } from 'react-router-dom'
 import styled from '@emotion/styled'
 
+//* Global State
 import { store } from '../store/store'
 
+//* Styles
 import { white, secondaryB } from '../styles/variables'
 
 const Menu = () => {
@@ -13,28 +16,31 @@ const Menu = () => {
   return (
     <List>
       <li>
-        <span
+        <Link
+          to="/"
           className={selectedSection === 1 ? 'active ' : ''}
           onClick={() => dispatch({ type: 'CHANGE_SECTION', payload: 1 })}
         >
           Now Playing
-        </span>
+        </Link>
       </li>
       <li>
-        <span
+        <Link
+          to="/"
           className={selectedSection === 2 ? 'active ' : ''}
           onClick={() => dispatch({ type: 'CHANGE_SECTION', payload: 2 })}
         >
           Up Coming
-        </span>
+        </Link>
       </li>
       <li>
-        <span
+        <Link
+          to="/"
           className={selectedSection === 3 ? 'active ' : ''}
           onClick={() => dispatch({ type: 'CHANGE_SECTION', payload: 3 })}
         >
           Top Rated
-        </span>
+        </Link>
       </li>
     </List>
   )
@@ -50,10 +56,8 @@ const List = styled('div')`
 
   li {
     padding: 0 3rem;
-    text-decoration: none;
 
-    span {
-      cursor: pointer;
+    a {
       color: ${white};
       font-size: 2rem;
       font-weight: 700;
@@ -61,6 +65,7 @@ const List = styled('div')`
       letter-spacing: 0.1rem;
       background-size: 100% 200%;
       padding: 0px 0.5rem;
+      text-decoration: none;
 
       &.active {
         background-image: linear-gradient(

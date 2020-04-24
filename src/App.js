@@ -5,29 +5,25 @@ import NavBar from './components/NavBar'
 import Loader from './components/Loader'
 import Menu from './components/Menu'
 
-import { StateProvider } from './store/store'
-
 import Global from './styles/Global'
 
 const Home = lazy(() => import('./sections/Home'))
+const MovieDetails = lazy(() => import('./sections/MovieDetails'))
 
-function App() {
-  return (
-    <>
-      <StateProvider>
-        <NavBar />
-        <Menu />
-        <Suspense fallback={<Loader />}>
-          <main>
-            <Switch>
-              <Route exact path="/" component={Home} />
-            </Switch>
-          </main>
-        </Suspense>
-        <Global />
-      </StateProvider>
-    </>
-  )
-}
+const App = () => (
+  <>
+    <NavBar />
+    <Menu />
+    <Suspense fallback={<Loader />}>
+      <main>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/movie/:id" component={MovieDetails} />
+        </Switch>
+      </main>
+    </Suspense>
+    <Global />
+  </>
+)
 
 export default App

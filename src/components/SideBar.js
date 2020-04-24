@@ -1,10 +1,13 @@
 import React, { useContext } from 'react'
 import styled from '@emotion/styled'
 
+//* Components
 import SideBarItem from './SideBarItem'
 
+//* Global State
 import { store } from '../store/store'
 
+//* Styles
 import { secondaryA, white } from '../styles/variables'
 
 const SideBar = () => {

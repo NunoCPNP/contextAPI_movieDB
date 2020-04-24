@@ -19,3 +19,11 @@ export async function getMovies(page, dispatch, url) {
 
   dispatch({ type: 'GET_MOVIES', payload: data })
 }
+
+export const getMovie = async (id, setMovie) => {
+  const url = `${process.env.REACT_APP_APIURL}/3/movie/${id}?api_key=${process.env.REACT_APP_APIKEY}&language=en-US`
+  const response = await axios.get(url)
+  const data = response.data
+
+  setMovie(data)
+}

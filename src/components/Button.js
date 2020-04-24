@@ -1,12 +1,13 @@
 import React, { useEffect, useState, useContext } from 'react'
+import { IoIosHeartEmpty, IoIosHeart } from 'react-icons/io'
 import { motion } from 'framer-motion'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 
-import { IoIosHeartEmpty, IoIosHeart } from 'react-icons/io'
-
+//* Global State
 import { store } from '../store/store'
 
+//* Styles
 import { secondaryB } from '../styles/variables'
 
 const Button = ({ id }) => {

@@ -25,6 +25,7 @@ const GlobalStyle = () => {
           box-sizing: border-box;
           font-family: 'Montserrat', sans-serif;
           background-color: ${primaryB};
+          overflow-x: hidden;
         }
       `}
     />

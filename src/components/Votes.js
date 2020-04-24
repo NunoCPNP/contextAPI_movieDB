@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 
+//* Styles
 import { black, secondaryB } from '../styles/variables'
 
 const Votes = ({ vaverage }) => {

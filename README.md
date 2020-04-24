@@ -6,11 +6,14 @@ Tutorial describing the process coming soon on [DEV](http://dev.to/) ...
 
 ## Live Demo
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4385abc6-5659-474a-8132-ce4c62fd235c/deploy-status)](https://app.netlify.com/sites/contextapidemo/deploys)
+
 [You can check a live version of the project here !](https://contextapidemo.netlify.app/)
 
 ## Features
 
 - Connected to [TheMovieDB](https://www.themoviedb.org/) API
+- Responsive Layout
 - Intersection Observable for Lazy API calls
 - Local Storage data persistance
 - PWA

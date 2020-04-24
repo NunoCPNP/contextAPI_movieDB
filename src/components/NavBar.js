@@ -1,8 +1,10 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
+//* Components
 import Wishlist from './Wishlist'
 
+//* Styles
 import { primaryA, white } from '../styles/variables'
 
 const NavBar = () => {

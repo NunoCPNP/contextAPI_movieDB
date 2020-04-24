@@ -1,8 +1,9 @@
 import React from 'react'
-import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 
+//* Components
 import Button from './Button'
 import Votes from './Votes'
 
@@ -11,28 +12,12 @@ const Movie = ({ id, title, poster, vaverage }) => {
   const w342 = `https://image.tmdb.org/t/p/w342/${poster}`
   const w500 = `https://image.tmdb.org/t/p/w500/${poster}`
 
-  const list = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        when: 'beforeChildren',
-        staggerChildren: 0.3,
-      },
-    },
-  }
-
-  const item = {
-    hidden: { y: 100, opacity: 0 },
-    visible: { y: 0, opacity: 1 },
-  }
-
   return (
-    <Container variants={list} initial="hidden" animate="visible">
-      <motion.div variants={item}>
+    <Container>
+      <Link to={`/movie/${id}`}>
         <img src={w342} srcSet={`${w185} 185w, ${w342} 342w, ${w500} 500w`} alt={title} />
         <Votes vaverage={vaverage} />
-      </motion.div>
+      </Link>
       <Button id={id} />
     </Container>
   )
@@ -47,7 +32,7 @@ Movie.propTypes = {
 
 export default Movie
 
-const Container = styled(motion.div)`
+const Container = styled('div')`
   position: relative;
   display: grid;
   grid-template-rows: auto 2.6rem;
