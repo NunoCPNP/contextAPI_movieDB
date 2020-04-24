@@ -11,7 +11,7 @@ import Movie from '../components/Movie'
 import { store } from '../store/store'
 
 //* API
-import { getMovies } from '../api/getMovies'
+import { getMovies } from '../api/getData'
 
 //* Styles
 import { secondaryB } from '../styles/variables'
@@ -29,16 +29,10 @@ const NowPlaying = () => {
   })
 
   useEffect(() => {
-    setPage(1)
     dispatch({ type: 'RESET_MOVIES' })
+    getMovies(1, dispatch, selectedSection)
+    setPage(2)
   }, [selectedSection])
-
-  useEffect(() => {
-    dispatch({ type: 'RESET_MOVIES' })
-    dispatch({ type: 'GET_WISHLIST_FROM_STORAGE' })
-    getMovies(page, dispatch, selectedSection)
-    setPage((prevState) => prevState + 1)
-  }, [])
 
   useEffect(() => {
     if (inView === true) {
@@ -77,6 +71,7 @@ export default NowPlaying
 const GridContainer = styled('div')`
   margin: auto;
   padding: 2rem 2rem 8rem 2rem;
+  min-height: 100vh;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   max-width: 120rem;

@@ -10,12 +10,11 @@ import Votes from './Votes'
 const Movie = ({ id, title, poster, vaverage }) => {
   const w185 = `https://image.tmdb.org/t/p/w185/${poster}`
   const w342 = `https://image.tmdb.org/t/p/w342/${poster}`
-  const w500 = `https://image.tmdb.org/t/p/w500/${poster}`
 
   return (
     <Container>
       <Link to={`/movie/${id}`}>
-        <img src={w342} srcSet={`${w185} 185w, ${w342} 342w, ${w500} 500w`} alt={title} />
+        <img src={w342} srcSet={`${w185} 185w, ${w342} 342w`} alt={title} />
         <Votes vaverage={vaverage} />
       </Link>
       <Button id={id} />

@@ -27,3 +27,19 @@ export const getMovie = async (id, setMovie) => {
 
   setMovie(data)
 }
+
+export const getCredits = async (id, setCredits) => {
+  const url = `${process.env.REACT_APP_APIURL}/3/movie/${id}/credits?api_key=${process.env.REACT_APP_APIKEY}`
+  const response = await axios.get(url)
+  const data = response.data
+
+  setCredits(data)
+}
+
+export const getSimilar = async (id, setSimilar) => {
+  const url = `https://api.themoviedb.org/3/movie/${id}/similar?api_key=${process.env.REACT_APP_APIKEY}&language=en-US&page=1`
+  const response = await axios.get(url)
+  const data = response.data
+
+  setSimilar(data)
+}

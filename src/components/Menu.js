@@ -63,11 +63,11 @@ const List = styled('div')`
       font-weight: 700;
       text-shadow: rgb(38, 37, 51) 0px 2px 2px;
       letter-spacing: 0.1rem;
-      background-size: 100% 200%;
       padding: 0px 0.5rem;
       text-decoration: none;
 
       &.active {
+        background-size: 100% 200%;
         background-image: linear-gradient(
           transparent 0%,
           transparent calc(50% - 0.7rem),
