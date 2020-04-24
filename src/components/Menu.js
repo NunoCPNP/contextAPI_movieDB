@@ -1,24 +1,44 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from '@emotion/styled'
-import { Link } from 'react-router-dom'
+
+import { store } from '../store/store'
 
 import { white, secondaryB } from '../styles/variables'
 
-const Menu = () => (
-  <>
+const Menu = () => {
+  const globalState = useContext(store)
+  const { dispatch } = globalState
+  const selectedSection = globalState.state.selectedSection
+
+  return (
     <List>
       <li>
-        <Link to="/">Now Playing</Link>
+        <span
+          className={selectedSection === 1 ? 'active ' : ''}
+          onClick={() => dispatch({ type: 'CHANGE_SECTION', payload: 1 })}
+        >
+          Now Playing
+        </span>
       </li>
       <li>
-        <Link to="/upcoming">Up Coming</Link>
+        <span
+          className={selectedSection === 2 ? 'active ' : ''}
+          onClick={() => dispatch({ type: 'CHANGE_SECTION', payload: 2 })}
+        >
+          Up Coming
+        </span>
       </li>
       <li>
-        <Link to="/toprated">Top Rated</Link>
+        <span
+          className={selectedSection === 3 ? 'active ' : ''}
+          onClick={() => dispatch({ type: 'CHANGE_SECTION', payload: 3 })}
+        >
+          Top Rated
+        </span>
       </li>
     </List>
-  </>
-)
+  )
+}
 
 export default Menu
 
@@ -32,25 +52,24 @@ const List = styled('div')`
     padding: 0 3rem;
     text-decoration: none;
 
-    a:visited,
-    a:link,
-    a:hover,
-    a:active {
+    span {
+      cursor: pointer;
       color: ${white};
       font-size: 2rem;
       font-weight: 700;
-      text-decoration: none;
-
       text-shadow: rgb(38, 37, 51) 0px 2px 2px;
       letter-spacing: 0.1rem;
-      background-image: linear-gradient(
-        transparent 0%,
-        transparent calc(50% - 0.7rem),
-        ${secondaryB} calc(50% - 0.7rem),
-        ${secondaryB} 100%
-      );
       background-size: 100% 200%;
       padding: 0px 0.5rem;
+
+      &.active {
+        background-image: linear-gradient(
+          transparent 0%,
+          transparent calc(50% - 0.7rem),
+          ${secondaryB} calc(50% - 0.7rem),
+          ${secondaryB} 100%
+        );
+      }
     }
   }
 `

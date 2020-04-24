@@ -8,13 +8,15 @@ import Movie from '../components/Movie'
 
 import { store } from '../store/store'
 
-import { getTopRated } from '../api/getMovies'
+import { getMovies } from '../api/getMovies'
 
 import { secondaryB } from '../styles/variables'
 
-const TopRated = () => {
+const NowPlaying = () => {
   const globalState = useContext(store)
   const { dispatch, state } = globalState
+
+  const selectedSection = state.selectedSection
 
   const [page, setPage] = useState(1)
 
@@ -23,16 +25,23 @@ const TopRated = () => {
   })
 
   useEffect(() => {
+    setPage(1)
+    console.log('Page:  ', page)
+    console.log('Selected Section: ', selectedSection)
     dispatch({ type: 'RESET_MOVIES' })
-    dispatch({ type: 'GET_WHISLIST_FROM_STORAGE' })
-    getTopRated(page, dispatch)
+  }, [selectedSection])
+
+  useEffect(() => {
+    dispatch({ type: 'RESET_MOVIES' })
+    dispatch({ type: 'GET_WISHLIST_FROM_STORAGE' })
+    getMovies(page, dispatch, selectedSection)
     setPage((prevState) => prevState + 1)
     //eslint-disable-next-line
   }, [])
 
   useEffect(() => {
     if (inView === true) {
-      getTopRated(page, dispatch)
+      getMovies(page, dispatch, selectedSection)
       setPage((prevState) => prevState + 1)
     }
     //eslint-disable-next-line
@@ -63,7 +72,7 @@ const TopRated = () => {
   )
 }
 
-export default TopRated
+export default NowPlaying
 
 const GridContainer = styled('div')`
   margin: auto;

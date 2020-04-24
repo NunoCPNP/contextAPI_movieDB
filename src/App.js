@@ -9,9 +9,7 @@ import { StateProvider } from './store/store'
 
 import Global from './styles/Global'
 
-const NowPlaying = lazy(() => import('./sections/NowPlaying'))
-const TopRated = lazy(() => import('./sections/TopRated'))
-const UpComing = lazy(() => import('./sections/UpComing'))
+const Home = lazy(() => import('./sections/Home'))
 
 function App() {
   return (
@@ -22,9 +20,7 @@ function App() {
         <Suspense fallback={<Loader />}>
           <main>
             <Switch>
-              <Route exact path="/" component={NowPlaying} />
-              <Route exact path="/toprated" component={TopRated} />
-              <Route exact path="/upcoming" component={UpComing} />
+              <Route exact path="/" component={Home} />
             </Switch>
           </main>
         </Suspense>
