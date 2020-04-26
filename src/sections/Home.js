@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import styled from '@emotion/styled'
 
 //* Components
 import SideBar from '../components/SideBar'
@@ -14,7 +13,7 @@ import { store } from '../store/store'
 import { getMovies } from '../api/getData'
 
 //* Styles
-import { secondaryB } from '../styles/variables'
+import { Animation, GridContainer, Intersection } from './Home.styles'
 
 const NowPlaying = () => {
   const globalState = useContext(store)
@@ -67,28 +66,3 @@ const NowPlaying = () => {
 }
 
 export default NowPlaying
-
-const GridContainer = styled('div')`
-  margin: auto;
-  padding: 2rem 2rem 8rem 2rem;
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-  max-width: 120rem;
-  grid-gap: 2rem;
-`
-
-const Animation = styled(motion.div)`
-  z-index: 5;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-`
-
-const Intersection = styled('div')`
-  text-align: center;
-  color: ${secondaryB};
-  font-size: 4rem;
-  padding-bottom: 1rem;
-`
