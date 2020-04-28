@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 //* Styles
 import { secondaryB, white } from '../styles/variables'
 
-export const Container = styled('div')`
+export const MovieContainer = styled('div')`
   display: grid;
   grid-template-columns: auto 1fr;
   padding: 3rem;
@@ -23,6 +23,22 @@ export const Details = styled('div')`
     font-weight: 700;
     text-shadow: rgb(38, 37, 51) 0px 2px 2px;
     letter-spacing: 0.1rem;
+  }
+
+  h3 {
+    display: inline-block;
+    padding: 2rem 0.3rem 0 0.3rem;
+    font-size: 2rem;
+    font-weight: 600;
+    text-shadow: rgb(38, 37, 51) 0px 2px 2px;
+    margin-right: 1rem;
+    background-size: 100% 200%;
+    background-image: linear-gradient(
+      transparent 0%,
+      transparent calc(50% - 0.7rem),
+      ${secondaryB} calc(50% - 0.7rem),
+      ${secondaryB} 100%
+    );
   }
 
   ul {
@@ -59,18 +75,24 @@ export const Header = styled('div')`
   grid-row-gap: 1rem;
 
   .info {
-    margin-top: auto;
-    margin-bottom: auto;
-    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
     font-size: 1.5rem;
     padding: 0 0.3rem;
     font-weight: 600;
     text-shadow: rgb(38, 37, 51) 0px 2px 2px;
 
     span {
+      padding-left: 1rem;
       color: ${secondaryB};
       font-size: 2rem;
     }
+  }
+
+  .genre {
+    display: flex;
+    align-items: center;
   }
 `
 
