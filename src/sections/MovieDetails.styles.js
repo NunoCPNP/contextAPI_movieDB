@@ -110,3 +110,5 @@ export const Cast = styled('div')`
     border-radius: 1rem;
   }
 `
+
+export const SimilarContainer = styled('div')``
