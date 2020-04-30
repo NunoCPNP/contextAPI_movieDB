@@ -111,4 +111,9 @@ export const Cast = styled('div')`
   }
 `
 
+export const Buttons = styled('div')`
+  display: flex;
+  justify-content: space-between;
+`
+
 export const SimilarContainer = styled('div')``
