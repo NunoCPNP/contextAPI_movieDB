@@ -25,6 +25,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "dev": "concurrently --kill-others \"npm run start\" \"npm run lambda-serve\"",
     "lambda-serve": "env-cmd netlify-lambda serve functions",
     "lambda-build": "netlify-lambda build functions"
   },

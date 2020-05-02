@@ -8,7 +8,7 @@ import Loader from '../components/Loader'
 import { getMovie, getCredits, getSimilar } from '../api/getData'
 
 //* Styles
-import { Cast, Cover, MovieContainer, Details, Header } from './MovieDetails.styles'
+import { Cast, Cover, MobileCover,  MovieContainer, Details, Header } from './MovieDetails.styles'
 
 const MovieDetails = () => {
   const { id } = useParams()
@@ -34,8 +34,11 @@ const MovieDetails = () => {
         <>
           <MovieContainer>
             <Cover>
-              <img src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`} />
+              <img src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`} alt={movie.title} />
             </Cover>
+            <MobileCover>
+              <img src={`https://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`} />
+            </MobileCover>
             <Details>
               <Header>
                 <h2>{movie.title}</h2>

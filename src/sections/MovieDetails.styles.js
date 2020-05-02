@@ -7,10 +7,31 @@ export const MovieContainer = styled('div')`
   display: grid;
   grid-template-columns: auto 1fr;
   padding: 3rem;
+
+  @media (max-width: 1000px) {
+    grid-template-columns: 1fr;
+  }
 `
 export const Cover = styled('div')`
   img {
     border-radius: 0.5rem;
+  }
+
+  @media (max-width: 1000px) {
+    display: none;
+  }
+`
+
+export const MobileCover = styled('div')`
+  display: none;
+
+  img {
+    width: 100%;
+    border-radius: 0.5rem;
+  }
+
+  @media (max-width: 1000px) {
+    display: block;
   }
 `
 
@@ -109,11 +130,6 @@ export const Cast = styled('div')`
     width: 100%;
     border-radius: 1rem;
   }
-`
-
-export const Buttons = styled('div')`
-  display: flex;
-  justify-content: space-between;
 `
 
 export const SimilarContainer = styled('div')``
