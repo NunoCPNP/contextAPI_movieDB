@@ -24,6 +24,7 @@ export const Cover = styled('div')`
 
 export const MobileCover = styled('div')`
   display: none;
+  position: relative;
 
   img {
     width: 100%;
@@ -115,6 +116,17 @@ export const Header = styled('div')`
     display: flex;
     align-items: center;
   }
+
+  @media (max-width: 1000px) {
+    display: none;
+  }
+`
+
+export const MobileHeader = styled('div')`
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  color: ${white};
 `
 
 export const Cast = styled('div')`
