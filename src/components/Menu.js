@@ -10,8 +10,8 @@ import { white, secondaryB } from '../styles/variables'
 
 const Menu = () => {
   const globalState = useContext(store)
-  const { dispatch } = globalState
-  const selectedSection = globalState.state.selectedSection
+  const { state, dispatch } = globalState
+  const selectedSection = state.selectedSection
 
   return (
     <List>
@@ -57,11 +57,15 @@ const List = styled('div')`
   li {
     padding: 0 3rem;
 
+    @media (max-width: 500px) {
+      padding: 0 2rem;
+    }
+
     a {
       color: ${white};
       font-size: 2rem;
       font-weight: 700;
-      text-shadow: rgb(38, 37, 51) 0px 2px 2px;
+      text-shadow: rgb(38, 37, 51) 0rem 0.2rem 0.2rem;
       letter-spacing: 0.1rem;
       padding: 0px 0.5rem;
       text-decoration: none;

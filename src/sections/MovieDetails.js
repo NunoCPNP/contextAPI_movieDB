@@ -8,7 +8,7 @@ import Loader from '../components/Loader'
 import { getMovie, getCredits, getSimilar } from '../api/getData'
 
 //* Styles
-import { Cast, Cover, Container, Details, Header } from './MovieDetails.styles'
+import { Cast, Cover, MobileCover, MovieContainer, Details, Header, MobileHeader } from './MovieDetails.styles'
 
 const MovieDetails = () => {
   const { id } = useParams()
@@ -32,17 +32,23 @@ const MovieDetails = () => {
         <Loader />
       ) : (
         <>
-          <Container>
+          <MovieContainer>
             <Cover>
-              <img src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`} />
+              <img src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`} alt={movie.title} />
             </Cover>
+            <MobileCover>
+              <img src={`https://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`} />
+              <MobileHeader>
+                <h2>{movie.title}</h2>
+              </MobileHeader>
+            </MobileCover>
             <Details>
               <Header>
                 <h2>{movie.title}</h2>
                 <div className="info">
                   {movie.spoken_languages[0].name} / {movie.runtime} min / {movie.release_date.slice(0, 4)}
                 </div>
-                <div>
+                <div className="genre">
                   <ul>
                     {movie.genres.map((genre) => (
                       <li key={genre.id}>{genre.name}</li>
@@ -54,6 +60,7 @@ const MovieDetails = () => {
                 </div>
               </Header>
               <div className="overview">{movie.overview}</div>
+              <h3>Main Cast</h3>
               <Cast>
                 {credits !== undefined &&
                   credits.cast.map((cast, index) => {
@@ -68,7 +75,7 @@ const MovieDetails = () => {
                   })}
               </Cast>
             </Details>
-          </Container>
+          </MovieContainer>
         </>
       )}
     </>
