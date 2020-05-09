@@ -3,6 +3,7 @@ const axios = require('axios')
 exports.handler = function (event, context, callback) {
   const { APIURL, APIKEY } = process.env
   const { url, page } = JSON.parse(event.body)
+  
   console.log("URL: ", url + "PAGE: ", page)
   console.log("URL: ", APIURL + "KEY: ", APIKEY)
 
