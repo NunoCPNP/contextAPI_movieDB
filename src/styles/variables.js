@@ -13,5 +13,3 @@ export const secondaryB = '#f6c90e'
 // export const primaryB = '#016A6D'
 // export const secondaryA = '#FFA45D'
 // export const secondaryB = '#E16A3D'
-
-//* Theme 3
